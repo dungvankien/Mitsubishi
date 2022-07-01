@@ -11,5 +11,5 @@ Chương trình quảng lý và quảng bá sản phẩm q
 4. Git
 + Github
 ## Sản phẩm
-1. link git: 
-2. link sản phẩm:
+1. link git: https://github.com/dungvankien/Mitsubishi.git
+2. link sản phẩm: https://dungvankien.github.io/Mitsubishi/
