@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mitsubishi</title>
+    <link rel="stylesheet" href="mitsubishi.css">
+</head>
+
+<body>
+    <div id="header">
+        <a href="" class="logo">
+            <img src="picture/logoMitsubishi1.png" alt="">
+        </a>
+        <ul id="mainMenu">
+            <li><a href="">TRANG CHỦ</a></li>
+            <li><a href="">GIỚI THIỆU</a></li>
+            <li><a href="">BẢN GIÁ</a></li>
+            <li><a href="">XE MITSUBISHI</a></li>
+            <li><a href="">TRẢ GÓP</a></li>
+            <li><a href="">TIN TỨC</a></li>
+            <li><a href="">LIÊN HỆ</a></li>
+        </ul>
+        <div class="clearfix"></div>
+    </div>
+    <div class="imgconten">
+        <img id="img" src="picture/xpanderr-202222.png" height="280" width="100%">
+    </div>
+    <div>
+        <div>
+            <h2 style="text-align:center  ; color:rgb(214, 11, 21);">XE MITSUBISHI</h2>
+        </div>
+        <hr>
+        <div id="modelCar"></div>
+        <div><button onclick="addProduct()" style="margin:100px 10px">Add +</button></div>
+        <div id="myAdd" style="display:none ;">
+            <input type="text" id="image" placeholder="Nhập link ảnh"><br>
+            <input type="text" id="nameCare" placeholder="Nhập tên xe"><br>
+            <input type="text" id="myprice" placeholder="Nhập giá"><br>
+            <button onclick="myAdd()">Add</button>
+            <button id="myUpdate" onclick="myUpdate()">Update</button>
+            <button onclick="myCancel()">Cancel</button>
+            <p id="idexHidden" type="hidden"></p>
+        </div>
+    </div>
+    <div class="footer">
+        <h4>TƯ VẤN NHANH</h4>
+        <P>
+            <input type="text" placeholder="Tên Bạn" id="myName">
+            <input type="number" placeholder="Số Điện Thoại" id="myMobiphone">
+            <input type="text" placeholder="Dòng Xe" id="model">
+            <button onclick="submit()">ĐĂNG KÝ</button>
+        </P>
+    </div>
+    <script src="mitsubishi.js"></script>
+</body>
+
+</html>
