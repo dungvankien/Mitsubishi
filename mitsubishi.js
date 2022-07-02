@@ -109,7 +109,7 @@ function myBody(object) {
         bodyCar += `<img src="${object[i].picture}">`;
         bodyCar += `<a href=""><h3>${object[i].nameCar}</h3></a>`;
         bodyCar += `<p>
-                    <span> Giá: ${object[i].price} đ  </span>
+                    <span> Giá: ${(object[i].price).toLocaleString()} đ  </span>
                     <span style="display:none;"><button onclick="myEdit(${i})">Edit</button></span>
                     <span style="display:none ;"><button onclick="myDelete(${i})">Delete</button></span>
                     </p>`;
@@ -125,7 +125,7 @@ function myBodyHidden(object) {
         bodyCar += `<img src="${object[i].picture}">`;
         bodyCar += `<a href=""><h3>${object[i].nameCar}</h3></a>`;
         bodyCar += `<p>
-                    <span> Giá: ${object[i].price} đ  </span>
+                    <span> Giá: ${(object[i].price).toLocaleString()} đ  </span>
                     <span style="display:inline-block;"><button onclick="myEdit(${i})">Edit</button></span>
                     <span style="display:inline-block ;"><button onclick="myDelete(${i})">Delete</button></span>
                     </p>`;
