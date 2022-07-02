@@ -5,47 +5,47 @@ class Car {
         this.price = price;
     }
 }
-class Customer{
-    constructor (fullName,mobiphone,model){
-        this.fullName=fullName;
-        this.mobiphone=mobiphone;
-        this.model=model;
+class Customer {
+    constructor(fullName, mobiphone, model) {
+        this.fullName = fullName;
+        this.mobiphone = mobiphone;
+        this.model = model;
     }
 }
 var myCar = [];
-let newCustomer=[];
-var indexImg=0;
-var indexCustomer=0;
-const imgs=["picture/xpanderr-202222.png","picture/conten2.png","picture/conten3.png","picture/conten4.png","picture/conten5.png"];
+let newCustomer = [];
+var indexImg = 0;
+var indexCustomer = 0;
+const imgs = ["picture/xpanderr-202222.png", "picture/conten2.png", "picture/conten3.png", "picture/conten4.png", "picture/conten5.png"];
 const keyCar = "car";
 let addImage = document.getElementById("image");
 let addName = document.getElementById("nameCare");
 let addPrice = document.getElementById("myprice");
 let hidden = document.getElementById("myAdd");
-init(keyCar,myCar);
+init(keyCar, myCar);
 myCar = getData(keyCar);
 myBody(myCar);
-setInterval(changeImage,2000);
+setInterval(changeImage, 2000);
 // Lấy thông tin khác hàng
-function submit(){
-    const keyCustomer="customer";
-        newCustomer[indexCustomer]=new Customer(
+function submit() {
+    const keyCustomer = "customer";
+    newCustomer[indexCustomer] = new Customer(
         document.getElementById("myName").value,
         document.getElementById("myMobiphone").value,
         document.getElementById("model").value);
-        indexCustomer++;
-        setData(keyCustomer,newCustomer);
-        alert("Cảm ơn bạn đã quan tâm, Chúng tôi sẽ liên hệ bạn sớm nhất.");
-        document.getElementById("myName").value=null,
-        document.getElementById("myMobiphone").value=null,
-        document.getElementById("model").value=null;
+    indexCustomer++;
+    setData(keyCustomer, newCustomer);
+    alert("Cảm ơn bạn đã quan tâm, Chúng tôi sẽ liên hệ bạn sớm nhất.");
+    document.getElementById("myName").value = null,
+        document.getElementById("myMobiphone").value = null,
+        document.getElementById("model").value = null;
 }
 // đổi ảnh contenr
-function changeImage(){
-    document.getElementById("img").src=imgs[indexImg];
+function changeImage() {
+    document.getElementById("img").src = imgs[indexImg];
     indexImg++;
-    if(indexImg==5){
-        indexImg=0;
+    if (indexImg == 5) {
+        indexImg = 0;
     }
 }
 function myUpdate() {
@@ -72,6 +72,7 @@ function myCancel() {
     addName.value = null;
     addPrice.value = null;
     hidden.style.display = "none";
+    myBody(myCar);
 }
 function myAdd() {
     if (addImage.value != 0 && addName.value != 0 && (Number(addPrice.value)) != 0) {
@@ -88,7 +89,8 @@ function myAdd() {
     }
 }
 function addProduct() {
-    hidden.style.display = "inline-block"
+    hidden.style.display = "inline-block";
+    myBodyHidden(myCar);
 }
 function myDelete(index) {
     let result = confirm(`Do you want to remove ${myCar[index].nameCar} from the list?`);
@@ -96,6 +98,7 @@ function myDelete(index) {
         myCar.splice(index, 1);
         setData(keyCar, myCar);
         getData(keyCar);
+        hidden.style.display = "none";
         myBody(myCar);
     }
 }
@@ -107,21 +110,39 @@ function myBody(object) {
         bodyCar += `<a href=""><h3>${object[i].nameCar}</h3></a>`;
         bodyCar += `<p>
                     <span> Giá: ${object[i].price} đ  </span>
-                    <span><button onclick="myEdit(${i})">Edit</button></span>
-                    <span><button onclick="myDelete(${i})">Delete</button></span>
+                    <span style="display:none;"><button onclick="myEdit(${i})">Edit</button></span>
+                    <span style="display:none ;"><button onclick="myDelete(${i})">Delete</button></span>
                     </p>`;
         bodyCar += "</div>";
     }
     bodyCar += `</div>`
     document.getElementById("modelCar").innerHTML = bodyCar;
 }
-function init(key,object) {
+function myBodyHidden(object) {
+    let bodyCar = `<div>`;
+    for (let i = 0; i < object.length; i++) {
+        bodyCar += `<div class="carBody">`;
+        bodyCar += `<img src="${object[i].picture}">`;
+        bodyCar += `<a href=""><h3>${object[i].nameCar}</h3></a>`;
+        bodyCar += `<p>
+                    <span> Giá: ${object[i].price} đ  </span>
+                    <span style="display:inline-block;"><button onclick="myEdit(${i})">Edit</button></span>
+                    <span style="display:inline-block ;"><button onclick="myDelete(${i})">Delete</button></span>
+                    </p>`;
+        bodyCar += "</div>";
+    }
+    bodyCar += `</div>`
+    document.getElementById("modelCar").innerHTML = bodyCar;
+}
+function init(key, object) {
     if (getData(key) == null) {
         object = [
             new Car("picture/new xpander 2022.png", "NEW XPANDER 2022", 555000000),
             new Car("picture/NEW OUTLANDER 2022.png", "NEW OUTLANDER 2022", 825000000),
             new Car("picture/NEW TRITON ATHLETE 2022.png", "NEW TRITON ATHLETE 2022", 760000000),
-            new Car("picture/NEW PAJERO SPORT 2021.png", "NEW PAJERO SPORT 2021", 1110000000)
+            new Car("picture/NEW PAJERO SPORT 2021.png", "NEW PAJERO SPORT 2021", 1110000000),
+            new Car("picture/NEWTRITON.png","NEW TRITON",630000000),
+            new Car("picture/XPANDER CROSS.png","XPANDER CROSS",670000000)
         ]
         setData(key, object);
     }
