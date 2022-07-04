@@ -44,7 +44,7 @@ function submit() {
 function changeImage() {
     document.getElementById("img").src = imgs[indexImg];
     indexImg++;
-    if (indexImg == 5) {
+    if (indexImg == imgs.length) {
         indexImg = 0;
     }
 }
@@ -141,8 +141,8 @@ function init(key, object) {
             new Car("picture/NEW OUTLANDER 2022.png", "NEW OUTLANDER 2022", 825000000),
             new Car("picture/NEW TRITON ATHLETE 2022.png", "NEW TRITON ATHLETE 2022", 760000000),
             new Car("picture/NEW PAJERO SPORT 2021.png", "NEW PAJERO SPORT 2021", 1110000000),
-            new Car("picture/NEWTRITON.png","NEW TRITON",630000000),
-            new Car("picture/XPANDER CROSS.png","XPANDER CROSS",670000000)
+            new Car("picture/NEWTRITON.png", "NEW TRITON", 630000000),
+            new Car("picture/XPANDER CROSS.png", "XPANDER CROSS", 670000000)
         ]
         setData(key, object);
     }
